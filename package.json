@@ -8,14 +8,18 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.2",
-    "express-handlebars": "^6.0.2"
+    "nodemon": "^2.0.15",
+    "sass": "^1.49.8"
   },
   "devDependencies": {
     "jest": "^27.4.5"
   },
-	"scripts": {
-		"test": "jest",
-		"start": "node ./app.js"
-	}
+  "scripts": {
+    "test": "jest",
+    "compile:scss": "sass --watch src/stylesheets/pages:public/stylesheets/pages",
+    "dev": "nodemon ./app.js",
+    "start": "npm run dev"
+  }
 }

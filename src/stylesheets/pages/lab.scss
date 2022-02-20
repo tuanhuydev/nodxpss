@@ -1,0 +1,37 @@
+.wrapper {
+    display: grid;
+    grid: [stack] 1fr / min-content [stack] 1fr;
+
+    aside {
+        background-color: red;
+    }
+
+    main {
+        background-color: green;
+    }
+
+    #sidenav-open {
+        display: grid;
+        grid-template-columns: [nav] 2fr [escape] 1fr;
+      
+        @media (max-width: 540px) {
+          position: sticky;
+          top: 0;
+          max-height: 100vh;
+          overflow: hidden auto;
+          overscroll-behavior: contain;
+          visibility: hidden;
+
+          &:target {
+            visibility: visible;
+          }
+        }
+      }
+
+    @media (max-width: 540px) {
+        aside, main {
+          grid-area: stack;
+          background-color: rebeccapurple;
+        }
+      }
+}

@@ -1,0 +1,35 @@
+.wrapper {
+  display: grid;
+  grid: [stack] 1fr/min-content [stack] 1fr;
+}
+.wrapper aside {
+  background-color: red;
+}
+.wrapper main {
+  background-color: green;
+}
+.wrapper #sidenav-open {
+  display: grid;
+  grid-template-columns: [nav] 2fr [escape] 1fr;
+}
+@media (max-width: 540px) {
+  .wrapper #sidenav-open {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow: hidden auto;
+    overscroll-behavior: contain;
+    visibility: hidden;
+  }
+  .wrapper #sidenav-open:target {
+    visibility: visible;
+  }
+}
+@media (max-width: 540px) {
+  .wrapper aside, .wrapper main {
+    grid-area: stack;
+    background-color: rebeccapurple;
+  }
+}
+
+/*# sourceMappingURL=lab.css.map */
