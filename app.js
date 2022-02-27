@@ -2,8 +2,10 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-const labRoutes = require('./src/routes/lab');
 const sass = require('sass');
+const helmet = require('helmet');
+const labRoutes = require('./src/routes/lab');
+const apiRoutes = require('./src/routes/api');
 
 // App config
 const app = express();
@@ -16,6 +18,9 @@ app.set('views', path.join(__dirname, './src/views'));
 
 // Setup Static directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+// SEO Helmet
+app.use(helmet());
 
 // Setup sass for stylesheets
 // TODO: Able to load multiple stylesheets
@@ -31,10 +36,7 @@ sass.compileAsync(path.join(__dirname, 'src/stylesheets/pages/lab.scss'))
 
 // Routing
 app.use('/lab', labRoutes);
-
-app.post('/newsletter-signup', function(req, res) {
-	console.log(req.body);
-});
+app.use('/api', apiRoutes);
 
 app.listen(3000, function() {
 	console.log("App is running on port 3000");

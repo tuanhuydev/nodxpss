@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <%- include('../particals/head')  %>
+   <%- include('../../particals/head')  %>
+   <title>Lab - Form</title>
 </head>
 <body>
     <h2>Sign up for our newsletter to receive news and specials!</h2>
     <form class="form-horizontal" role="form"
-        action="/newsletter-signup/process?form=newsletter" method="POST">
-    <input type="hidden" name="_csrf" value="{{ csrf }}">
+        action="/lab/form/process?form=newsletter" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
     <div class="form-group">
         <label for="fieldName" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-4">

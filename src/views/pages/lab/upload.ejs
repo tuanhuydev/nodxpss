@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab - Upload</title>
+</head>
+<body>
+    <form id="uploadFile" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="_csrf" value="<%= csrf %>" />
+        <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label">Photo</label>
+            <input type="file" name="photo" required accept="image/*" />
+        </div>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+<script type="text/javascript" src="/js/upload.js"></script>
+</html>
