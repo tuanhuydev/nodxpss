@@ -22,3 +22,14 @@ exports.uploadProcess = (req, res) => {
     console.log('files', req.file);
     res.send({ result: 'success' });
 }
+
+
+// Cookie testing
+exports.testCookie = (req, res) => {
+    req.session.monster = 'gruh';
+    res.end('Check your request cookie');
+}
+
+exports.verifyCookie = (req, res) => {
+    res.send(req.session);
+}

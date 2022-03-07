@@ -1,5 +1,6 @@
 const path = require('path');
 const multer  = require('multer');
+const credentials = require('../../.credentials.development.json');
 
 const PUBLIC_PATH = path.resolve(__dirname, '../../public');
 
@@ -19,6 +20,7 @@ const LOCAL_UPLOAD = multer({ storage });
 
 module.exports = {
     PUBLIC_PATH,
-    LOCAL_UPLOAD
+    LOCAL_UPLOAD,
+    credentials
 }
 
