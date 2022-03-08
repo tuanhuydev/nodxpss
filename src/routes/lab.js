@@ -21,4 +21,9 @@ router.get('/upload', labController.upload);
 router.get('/test-cookie', labController.testCookie);
 router.get('/verify-cookie', withMonster,labController.verifyCookie);
 
+// Send email
+router.get('/send-email', labController.authGoogle);
+
+router.get('/verify-email', labController.verifyEmail)
+
 module.exports = router;

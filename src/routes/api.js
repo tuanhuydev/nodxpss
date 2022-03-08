@@ -1,5 +1,5 @@
 const express = require("express");
-const { LOCAL_UPLOAD } = require('../configs/constants');
+const { LOCAL_UPLOAD } = require('../services/storageService');
 const labController = require('../controllers/labController');
 
 const router = express.Router();
