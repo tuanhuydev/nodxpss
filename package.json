@@ -8,15 +8,19 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "cluster": "^0.7.7",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "googleapis": "39",
     "helmet": "^5.0.2",
+    "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "nodemailer": "^6.7.2",
     "nodemon": "^2.0.15",
+    "pm2": "^5.2.0",
     "sass": "^1.49.8",
     "uuid": "^8.3.2"
   },
@@ -27,6 +31,8 @@
     "test": "jest",
     "compile:scss": "sass --watch src/stylesheets/pages:public/stylesheets/pages",
     "dev": "nodemon ./app.js",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "cluster": "node ./cluster.js",
+    "prod": "NODE_ENV=production node ./app.js"
   }
 }

@@ -13,7 +13,6 @@ router.get('/form', labController.form);
 router.post('/form/process', labController.formProcess);
 router.get('/form/thank-you', labController.formThankYou);
 
-
 // Upload
 router.get('/upload', labController.upload);
 
@@ -24,6 +23,8 @@ router.get('/verify-cookie', withMonster,labController.verifyCookie);
 // Send email
 router.get('/send-email', labController.authGoogle);
 
-router.get('/verify-email', labController.verifyEmail)
+router.get('/verify-email', labController.verifyEmail);
+
+router.get('/console', labController.console);
 
 module.exports = router;

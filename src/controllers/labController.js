@@ -120,6 +120,10 @@ exports.sendEmail = (req, res) => (auth) => {
 }
 
 exports.verifyEmail = (req, res) => {
-    console.log(req.params);
     res.send({ result: 'success' });
+}
+
+exports.console = (req, res) => {
+    res.send('Check your console');
+    require('../services/terminalService');
 }

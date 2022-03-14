@@ -11,7 +11,7 @@ const { v4: uuidv4 } = require('uuid');
 const labRoutes = require('./src/routes/lab');
 const apiRoutes = require('./src/routes/api');
 const { credentials } = require('./src/configs/constants');
-require('./src/services/terminal');
+const morgan = require('morgan');
 
 // App config
 const app = express();
@@ -45,6 +45,18 @@ app.set('views', path.join(__dirname, './src/views'));
 // Setup Static directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Config logging
+switch(app.get('env')) {
+	case 'development':
+		app.use(morgan('dev'));
+		break;		
+	case 'production':
+		const stream = fs.createWriteStream(path.join(__dirname, 'access.logs'));
+		app.use(morgan('combined', { stream }))
+		break;
+}
+
+
 
 // Setup sass for stylesheets
 // TODO: Able to load multiple stylesheets
@@ -68,6 +80,7 @@ app.use((err, req, res, next) => {
 	res.status(500).send('Something broke!')
 });
 
+
 app.listen(3000, function() {
-	console.log("App is running on port 3000");
+	console.log(`Nodxpss started in ${app.get('env')} mode on http://localhost:3000`);
 });
