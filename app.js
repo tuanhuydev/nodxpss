@@ -11,6 +11,7 @@ const { v4: uuidv4 } = require('uuid');
 const labRoutes = require('./src/routes/lab');
 const apiRoutes = require('./src/routes/api');
 const { credentials } = require('./src/configs/constants');
+require('./src/services/terminal');
 
 // App config
 const app = express();
@@ -22,6 +23,7 @@ app.use(helmet());
 // Parse http request's body with bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 // Manage session in application
 app.use(session({
 	secret: credentials.sessionSecret,
@@ -62,7 +64,7 @@ app.use('/api', apiRoutes);
 
 // Force custom internal error page.
 app.use((err, req, res, next) => {
-	console.error(err.stack)
+	console.error(err.stack);
 	res.status(500).send('Something broke!')
 });
 

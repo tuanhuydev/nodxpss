@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Dockerfile
+Dockerfile
+
+# Version control
+.git
+.history
